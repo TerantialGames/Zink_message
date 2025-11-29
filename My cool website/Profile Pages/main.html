@@ -1,378 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zink - Home</title>
-
-<style>
-    :root {
-        --bg: #000;
-        --gold: #e7d259;
-        --dark: #0a0a0a;
-        --lighter: #111;
-        --chat-bg: #0c0c0c;
-        --text: #fff;
-        --gray:#0c0c0c58;
-        --gray2:#b7bc5f79;
-        --gold2:#fff47a50;
-    }
-
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        height: 100vh;
-        display: flex;
-    }
-
-    /* LEFT — SERVER ICONS */
-    .servers {
-        width: 90px;
-        background: var(--dark);
-        border-right: 3px solid var(--gold);
-        padding: 20px 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .server {
-        width: 60px;
-        height: 60px;
-        background: #111;
-        border-radius: 50%;
-        border: 3px solid var(--gold);
-        box-shadow: 0 0 12px var(--gold);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: 900;
-        color: var(--gold);
-        cursor: pointer;
-        transition: 0.2s;
-        user-select: none;
-    }
-
-    .server:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0 18px var(--gold);
-    }
-
-    /* MIDDLE — CHANNEL LIST */
-    .channels {
-        width: 260px;
-        background: var(--lighter);
-        border-right: 2px solid var(--gray);
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-        box-sizing: border-box;
-    }
-
-    .channel-title {
-        font-size: 24px;
-        font-weight: bold;
-        color: var(--gold);
-        text-shadow: 0 0 10px var(--gold);
-        margin-bottom: 15px;
-    }
-
-    .channel {
-        padding: 10px;
-        border-radius: 8px;
-        margin-bottom: 8px;
-        cursor: pointer;
-        background: #0f0f0f93;
-        border: 2px solid var(--gray2);
-        opacity: 0.85;
-        transition: 0.2s;
-    }
-
-    .channel:hover {
-        opacity: 1;
-        background: #141414;
-        box-shadow: 0 0 12px var(--gold);
-    }
-
-    /* RIGHT — MAIN CHAT AREA */
-    .chat {
-        flex: 1;
-        background: var(--chat-bg);
-        display: flex;
-        flex-direction: column;
-    }
-
-    /* TOP BAR */
-    .topbar {
-        height: 60px;
-        background: #080808;
-        border-bottom: 3px solid var(--gold);
-        display: flex;
-        align-items: center;
-        padding: 0 20px;
-        font-size: 22px;
-        font-weight: bold;
-        color: var(--gold);
-        text-shadow: 0 0 10px var(--gold);
-    }
-
-    /* MESSAGES AREA */
-    .messages {
-        flex: 1;
-        padding: 20px;
-        overflow-y: auto;
-    }
-
-    .message {
-        background: #141414;
-        border-left: 4px solid var(--gold);
-        padding: 12px;
-        margin-bottom: 12px;
-        border-radius: 10px;
-        opacity: 0.9;
-    }
-
-    /* MESSAGE INPUT */
-    .input-area {
-        padding: 20px;
-        border-top: 3px solid var(--gold);
-        display: flex;
-        gap: 10px;
-    }
-
-    .input-box {
-        flex: 1;
-        padding: 12px;
-        border-radius: 10px;
-        background: #4948483b;
-        border: 2px solid var(--gold2);
-        color: rgba(193, 198, 61, 0.791);
-        font-size: 16px;
-    }
-
-    .send-btn {
-        padding: 12px 26px;
-        background: var(--gold);
-        color: black;
-        border: 3px solid var(--gold);
-        border-radius: 10px;
-        font-weight: 900;
-        cursor: pointer;
-        box-shadow: 0 0 15px var(--gold);
-    }
-
-    .send-btn:hover {
-        opacity: 0.9;
-    }
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zink - Main</title>
+    <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
 
-<!-- LEFT: SERVER LIST -->
-<div class="servers">
-    <div class="server">Z</div>
-    <div class="server">+</div>
-    <div class="server">*</div>
-</div>
-
-<!-- MIDDLE: CHANNELS -->
-<div class="channels">
-    <div class="channel-title">Zink Server</div>
-
-    <div class="channel"># general</div>
-    <div class="channel"># chat</div>
-    <div class="channel"># media</div>
-    <div class="channel"># voice</div>
-</div>
-
-<!-- RIGHT: CHAT -->
-<div class="chat">
-
-    <div class="topbar"># general</div>
-
-    <div class="messages" id="messages">
-        <div class="message">Welcome to Zink! This is your first message.</div>
-        <div class="message">You can customize this entire UI however you want.</div>
+    <!-- MINI PROFILE – TOP RIGHT -->
+    <div class="mini-profile">
+        <img src="https://via.placeholder.com/48" class="pfp">
+        <div>
+            <h4>Moneynightz</h4>
+            <span>Online</span>
+        </div>
     </div>
 
-    <div class="input-area">
-        <input type="text" id="input" class="input-box" placeholder="Send a message...">
-        <button class="send-btn" id="send">Send</button>
-    </div>
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">Zink</div>
 
-</div>
+        <div class="channels">
+            <h3>Channels</h3>
+            <button class="channel"># general</button>
+            <button class="channel"># chat</button>
+            <button class="channel"># media</button>
+        </div>
+    </aside>
 
-<script>
-    const input = document.getElementById("input");
-    const sendBtn = document.getElementById("send");
-    const messages = document.getElementById("messages");
+    <!-- MAIN CHAT -->
+    <main class="chat">
 
-    function sendMessage() {
-        const text = input.value.trim();
-        if (text === "") return;
+        <header class="topbar">
+            # general
+        </header>
 
-        const msg = document.createElement("div");
-        msg.className = "message";
-        msg.textContent = text;
+        <div class="messages">
+            <div class="msg"><span class="user">System</span> Welcome to Zink.</div>
+        </div>
 
-        messages.appendChild(msg);
-        messages.scrollTop = messages.scrollHeight;
+        <div class="input-area">
+            <input id="msgInput" type="text" placeholder="Send a message...">
+            <button id="sendBtn">Send</button>
+        </div>
 
-        input.value = "";
-    }
-
-    sendBtn.addEventListener("click", sendMessage);
-
-    input.addEventListener("keydown", function (e) {
-        if (e.key === "Enter") {
-            sendMessage();
-        }
-    });
-</script>
+    </main>
 
 </body>
-<style>
- <style>
-    /* MINI PROFILE BUTTON */
-    .mini-profile {
-        position: absolute;
-        top: 15px;
-        right: 15px; /* moved to top-right */
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        background: #0d0d0d;
-        border: 2px solid #222;
-        padding: 8px 12px;
-
-        /* only bottom-left + bottom-right rounded */
-        border-radius: 0 0 12px 12px;
-
-        cursor: pointer;
-        transition: 0.2s;
-    }
-
-    .mini-profile:hover {
-        background: #141414;
-        box-shadow: 0 0 12px var(--gold);
-    }
-
-    .mini-pfp {
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        border: 3px solid var(--gold);
-        object-fit: cover;
-    }
-
-    .mini-name {
-        font-size: 18px;
-        font-weight: 700;
-        color: var(--gold);
-        text-shadow: 0 0 8px var(--gold);
-    }
-
-    /* DROPDOWN */
-    .profile-dropdown {
-        position: absolute;
-        top: 70px; 
-        right: 15px; /* align under mini profile */
-        
-        width: 320px;
-        background: #0c0c0c;
-        border: 2px solid #222;
-        border-radius: 0 0 12px 12px; /* only bottom corners visible */
-
-        box-shadow: 0 0 25px #000;
-        overflow: hidden;
-        max-height: 0px;
-        opacity: 0;
-        transition: 0.25s ease;
-    }
-
-    .dropdown-open {
-        max-height: 380px;
-        opacity: 1;
-    }
-
-    .drop-banner {
-        width: 100%;
-        height: 110px;
-        background: linear-gradient(135deg, #1a1a1a, #0c0c0c);
-        border-bottom: 2px solid var(--gold);
-    }
-
-    .drop-inner {
-        padding: 15px;
-    }
-
-    .drop-username {
-        color: var(--gold);
-        font-size: 22px;
-        font-weight: 900;
-        margin-bottom: 5px;
-        text-shadow: 0 0 8px var(--gold);
-    }
-
-    .drop-id {
-        color: #aaa;
-        margin-bottom: 15px;
-    }
-
-    .drop-btn {
-        width: 100%;
-        padding: 10px;
-        background: #111;
-        border: 2px solid var(--gold);
-        border-radius: 10px;
-        color: var(--gold);
-        font-weight: bold;
-        margin-top: 10px;
-        cursor: pointer;
-        transition: 0.2s;
-    }
-
-    .drop-btn:hover {
-        background: #1a1a1a;
-    }
-</style>
-
-<!-- MINI PROFILE -->
-<div class="mini-profile" id="mini-profile">
-    <img src="https://i.imgur.com/4ZQZ4xJ.png" class="mini-pfp" id="miniPfp">
-    <div class="mini-name" id="miniName">ZinkUser</div>
-</div>
-
-<!-- DROPDOWN -->
-<div class="profile-dropdown" id="profileDropdown">
-
-    <div class="drop-banner"></div>
-
-    <div class="drop-inner">
-        <div class="drop-username" id="dropUsername">ZinkUser</div>
-        <div class="drop-id" id="dropId">@user1234</div>
-
-        <button class="drop-btn">View Full Profile</button>
-        <button class="drop-btn">Settings</button>
-        <button class="drop-btn">Logout</button>
-    </div>
-
-</div>
-
-<script>
-    const miniProfile = document.getElementById("mini-profile");
-    const dropdown = document.getElementById("profileDropdown");
-
-    let isOpen = false;
-
-    miniProfile.addEventListener("click", () => {
-        isOpen = !isOpen;
-        dropdown.classList.toggle("dropdown-open", isOpen);
-    });
-</script>
-
 </html>
