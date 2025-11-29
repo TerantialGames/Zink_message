@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zink - Profile</title>
+
+<style>
+    :root {
+        --bg: #000;
+        --gold: #e7d259;
+        --dark: #0a0a0a;
+        --lighter: #111;
+        --text: #fff;
+    }
+
+    body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: Arial, sans-serif;
+    }
+
+    /* BANNER */
+    .banner {
+        width: 100%;
+        height: 180px;
+        background: linear-gradient(135deg, #181818, #0c0c0c);
+        border-bottom: 3px solid var(--gold);
+        position: relative;
+    }
+
+    /* PROFILE PICTURE */
+    .pfp {
+        width: 150px;
+        height: 150px;
+        background: #222;
+        border-radius: 50%;
+        border: 4px solid var(--gold);
+        position: absolute;
+        bottom: -75px;
+        left: 40px;
+        object-fit: cover;
+        box-shadow: 0 0 20px var(--gold);
+    }
+
+    /* USER INFO SECTION */
+    .profile-info {
+        padding: 100px 40px 20px 40px;
+    }
+
+    .username {
+        font-size: 32px;
+        font-weight: 900;
+        color: var(--gold);
+        text-shadow: 0 0 10px var(--gold);
+    }
+
+    .userid {
+        color: #aaa;
+        margin-top: 5px;
+    }
+
+    /* TABS */
+    .tabs {
+        display: flex;
+        gap: 20px;
+        margin-top: 25px;
+    }
+
+    .tab {
+        padding: 10px 20px;
+        border-bottom: 3px solid transparent;
+        cursor: pointer;
+        font-size: 18px;
+        transition: 0.2s;
+    }
+
+    .tab:hover {
+        color: var(--gold);
+    }
+
+    .active-tab {
+        border-bottom: 3px solid var(--gold);
+        color: var(--gold);
+    }
+
+    /* TAB CONTENT */
+    .content {
+        margin-top: 30px;
+        padding: 20px;
+        background: #0d0d0d;
+        border: 2px solid #222;
+        border-radius: 12px;
+        min-height: 250px;
+    }
+</style>
+
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="banner">
+    <img src="https://i.imgur.com/4ZQZ4xJ.png" class="pfp" id="pfp">
+</div>
+
+<!-- USER INFO -->
+<div class="profile-info">
+    <div class="username" id="username">ZinkUser</div>
+    <div class="userid" id="userid">@user1234</div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <div class="tab active-tab" data-tab="about">About</div>
+        <div class="tab" data-tab="activity">Activity</div>
+        <div class="tab" data-tab="settings">Settings</div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content" id="content-box">
+        Welcome to your profile!  
+        This is the **About** section.
+    </div>
+</div>
+
+
+<script>
+    const tabs = document.querySelectorAll(".tab");
+    const contentBox = document.getElementById("content-box");
+
+    const tabContent = {
+        about: `
+            <h2>About</h2>
+            <p>This is your bio. You can customize it later.</p>
+            <p>More personal details will go here.</p>
+        `,
+        activity: `
+            <h2>Activity</h2>
+            <p>• Messages sent: 143</p>
+            <p>• Joined: Oct 2024</p>
+            <p>• Last active: Today</p>
+        `,
+        settings: `
+            <h2>Settings</h2>
+            <p>Profile customization and account controls will go here.</p>
+        `
+    };
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+            // remove old active
+            document.querySelector(".active-tab").classList.remove("active-tab");
+
+            // set new active
+            tab.classList.add("active-tab");
+
+            // change content
+            contentBox.innerHTML = tabContent[tab.dataset.tab];
+        });
+    });
+</script>
+
+</body>
+</html>

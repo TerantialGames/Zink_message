@@ -1,0 +1,33 @@
+/* styles.css */
+body {
+    background-color: #141414;
+    font-family: 'Trebuchet MS bold', sans-serif;
+}
+h1 {
+    color: #fff200;
+    text-align: left;
+    font-size: 50px;
+    padding-left: 30px;
+}
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #0a0a0a;
+}
+header {
+    background-color: #f4f4f4;
+    padding: 10px 10px;
+    text-align: center;
+    border-bottom: 6px solid #734bed;
+} 
+.FullLogo {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+.h1:hover {
+    color: #111;
+   background: greenyellow;
+   box-shadow: 0 0 100px greenyellow;
+}
